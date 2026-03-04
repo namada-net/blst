@@ -46,7 +46,7 @@ fn bindgen_test_layout_blst_scalar() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq, Zeroize)]
 #[cfg_attr(feature = "arbitrary", derive(arbitrary::Arbitrary))]
 pub struct blst_fr {
     pub l: [limb_t; 4usize],
@@ -77,7 +77,7 @@ fn bindgen_test_layout_blst_fr() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq, Zeroize)]
 #[cfg_attr(feature = "arbitrary", derive(arbitrary::Arbitrary))]
 pub struct blst_fp {
     pub l: [limb_t; 6usize],
@@ -108,7 +108,7 @@ fn bindgen_test_layout_blst_fp() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq, Zeroize)]
 #[cfg_attr(feature = "arbitrary", derive(arbitrary::Arbitrary))]
 pub struct blst_fp2 {
     pub fp: [blst_fp; 2usize],
@@ -139,7 +139,7 @@ fn bindgen_test_layout_blst_fp2() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, PartialEq, Eq)]
+#[derive(Debug, Default, Copy, Clone, PartialEq, Eq, Zeroize)]
 #[cfg_attr(feature = "arbitrary", derive(arbitrary::Arbitrary))]
 pub struct blst_fp6 {
     pub fp2: [blst_fp2; 3usize],
@@ -171,7 +171,7 @@ fn bindgen_test_layout_blst_fp6() {
 }
 #[repr(C)]
 #[cfg_attr(feature = "arbitrary", derive(arbitrary::Arbitrary))]
-#[derive(Debug, Copy, Clone, Eq)]
+#[derive(Debug, Copy, Clone, Eq, Zeroize)]
 pub struct blst_fp12 {
     pub fp6: [blst_fp6; 2usize],
 }
@@ -430,7 +430,7 @@ extern "C" {
     pub fn blst_fp12_one() -> *const blst_fp12;
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, Eq)]
+#[derive(Debug, Default, Copy, Clone, Eq, Zeroize)]
 #[cfg_attr(feature = "arbitrary", derive(arbitrary::Arbitrary))]
 pub struct blst_p1 {
     pub x: blst_fp,
@@ -483,7 +483,7 @@ fn bindgen_test_layout_blst_p1() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, Eq)]
+#[derive(Debug, Default, Copy, Clone, Eq, Zeroize)]
 #[cfg_attr(feature = "arbitrary", derive(arbitrary::Arbitrary))]
 pub struct blst_p1_affine {
     pub x: blst_fp,
@@ -586,7 +586,7 @@ extern "C" {
     pub fn blst_p1_affine_generator() -> *const blst_p1_affine;
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, Eq)]
+#[derive(Debug, Default, Copy, Clone, Eq, Zeroize)]
 #[cfg_attr(feature = "arbitrary", derive(arbitrary::Arbitrary))]
 pub struct blst_p2 {
     pub x: blst_fp2,
@@ -639,7 +639,7 @@ fn bindgen_test_layout_blst_p2() {
     );
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone, Eq)]
+#[derive(Debug, Default, Copy, Clone, Eq, Zeroize)]
 #[cfg_attr(feature = "arbitrary", derive(arbitrary::Arbitrary))]
 pub struct blst_p2_affine {
     pub x: blst_fp2,
